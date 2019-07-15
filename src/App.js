@@ -13,7 +13,6 @@ function App() {
 
   return (
     <>
-      <MathQuill />
       <Maths>
         $x = 3$
       </Maths>
