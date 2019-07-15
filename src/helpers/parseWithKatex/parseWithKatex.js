@@ -2,7 +2,7 @@ import katex from 'katex'
 
 const REG_EXP_$ = /\$[\S\s]*?\$/g
 
-const parseWithKatex = string => {
+const parseWithKatex = (string = '') => {
   const matches = string.match(REG_EXP_$)
   if (!matches) return string
 

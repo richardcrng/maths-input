@@ -1,6 +1,6 @@
 import React from 'react';
 import InnerHTML from '../InnerHTML';
-import parseWithKatex from '../parseWithKatex';
+import parseWithKatex from '../../../helpers/parseWithKatex';
 
 function Maths({ children, element = "div" }) {
   return (

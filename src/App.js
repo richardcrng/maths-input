@@ -4,6 +4,7 @@ import KeyPad from './components/atoms/KeyPad';
 import Maths from './helpers/react-maths';
 import Input from './components/atoms/Input';
 import TextArea from './components/atoms/TextArea';
+import MathsInput from './components/molecules/MathsInput/MathsInput';
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       <Maths>
         $x = 3$
       </Maths>
+      <MathsInput>
+        $x = 3$
+      </MathsInput>
       <TextArea />
       <Input />
       <KeyPad>
