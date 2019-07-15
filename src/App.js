@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
-import Display from './components/atoms/Display';
 import KeyPad from './components/atoms/KeyPad';
+import Maths from './helpers/react-maths';
+import Input from './components/atoms/Input';
+import TextArea from './components/atoms/TextArea';
 
 function App() {
   return (
     <>
-      <Display />
+      <Maths>
+        $x = 3$
+      </Maths>
+      <TextArea />
+      <Input />
       <KeyPad>
         {keyRows.map((keys, idx) => (
           <KeyPad.Row key={idx}>
