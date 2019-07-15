@@ -1,8 +1,11 @@
 import React from 'react';
+import KeyPad from '../../atoms/KeyPad';
 
 const keyRows = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
-function MathsKeypad() {
+function MathsKeypad({ when = true }) {
+  if (!when) return null
+
   return (
     <KeyPad>
       {keyRows.map((keys, idx) => (
