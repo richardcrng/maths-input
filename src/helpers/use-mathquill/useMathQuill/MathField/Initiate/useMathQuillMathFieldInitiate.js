@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import useExecute from '../../../../useExecute';
 import useMathQuill from '../../useMathQuill';
+import useExecute from '../../../../hooks/useExecute/useExecute';
 
 /**
  * 

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "jquery": "^3.4.1",
     "katex": "^0.10.2",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
