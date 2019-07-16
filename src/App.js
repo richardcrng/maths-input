@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import MathsInputEnabler from './components/organism/MathsInputEnabler';
-import MathsInput from './components/molecules/MathsInput';
+import Demo from './components/pages/Demo';
 
 function App() {
   return (
     <MathsInputEnabler>
-      <MathsInput />
+      <Demo />
     </MathsInputEnabler>
   );
 }
