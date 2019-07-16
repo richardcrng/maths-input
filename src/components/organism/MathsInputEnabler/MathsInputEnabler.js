@@ -5,9 +5,10 @@ const MathsInputEnablerContext = React.createContext()
 export const useMathsInputEnabler = () => React.useContext(MathsInputEnablerContext)
 
 function MathsInputEnabler({ children }) {
+  const [active, setActive] = React.useState()
 
   return (
-    <MathsInputEnablerContext.Provider value={{}}>
+    <MathsInputEnablerContext.Provider value={{ active, setActive }}>
       {children}
       <MathsKeypad when={true} />
     </MathsInputEnablerContext.Provider>
