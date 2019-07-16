@@ -8,7 +8,6 @@ function Demo() {
 
   React.useEffect(() => {
     const timeoutHandler = setTimeout(() => {
-      console.log('MQ', MQ)
       MQ(ref.current).write('\\frac{2}{3}')
     }, 1000);
 
