@@ -4,12 +4,12 @@ import React from 'react';
 // import '../mathquill';
 
 function useMathQuill() {
-  const [MQ, setMQ] = React.useState(window.MQ)
+  const [MQ, setMQ] = React.useState(window.MQ || {})
 
   React.useEffect(() => {
     if (!MQ) {
       const timeoutHandler = setTimeout(() => {
-        setMQ(window.MQ || window.MathQuill.getInterface(2))
+        setMQ(window.MQ || window.MathQuill.getInterface(2) || {})
       }, 100);
 
       return function cleanup() {
