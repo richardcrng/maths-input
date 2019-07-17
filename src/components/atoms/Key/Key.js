@@ -7,11 +7,12 @@ import { useActiveMathField } from '../../organism/MathsInputEnabler';
 /**
  * 
  * @param {Object} props
+ * @param {string} props.cmd - passed to MathQuill's .cmd onClick
  * @param {function} props.component - component to render inside KeyInner
  * @param {string} props.html
  * @param {string} props.latex
- * @param {string} props.cmd - passed to MathQuill's .cmd onClick
  * @param {string} props.keystroke - passed to MathQuill's .keystrong onClick
+ * @param {number} props.weight - the weight of the row's width assigned to this key
  * @param {string} props.write - passed to MathQuill's .write onClick
  * 
  */
@@ -22,6 +23,7 @@ function Key({
     latex,
     write,
     style,
+    weight,
     ...rest
   }) {
   const activeMathField = useActiveMathField()
