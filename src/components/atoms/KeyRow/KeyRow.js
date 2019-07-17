@@ -4,12 +4,21 @@ import classes from './KeyRow.module.css';
 /**
  * 
  * @param {Object} props
- * @param {number} props.weight - The weight of the row's height assigned to this row
  */
-function KeyRow({ children, style, weight }) {
+function KeyRow({ children, style }) {
   return (
     <div className={classes.KeyRow} style={style}>
-      {children}
+      {React.Children.map(children, ({ type: Child, props: { childStyle, ...childProps } }) => {
+        return (
+          <Child
+            style={{
+              width: `${Math.floor(100 / children.length)}%`,
+              ...childStyle
+            }}
+            {...childProps}
+          />
+        )
+      })}
     </div>
   )
 }
