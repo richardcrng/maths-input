@@ -27,8 +27,8 @@ function DemoKeyPad() {
         <KeyPad.Key html={4} />
         <KeyPad.Key html={5} />
         <KeyPad.Key html={6} />
-        <KeyPad.Key html={parseWithKatex('$\\times$')} />
-        <KeyPad.Key html={parseWithKatex('$\\dfrac{3}{4}$')} />
+        <KeyPad.Key latex="$\times$" />
+        <KeyPad.Key latex="$\dfrac{3}{4}$" />
       </KeyPad.Row>
     </KeyPad>
   )
