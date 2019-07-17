@@ -10,8 +10,9 @@ import { useActiveMathField } from '../../organism/MathsInputEnabler';
  * @param {string} props.cmd - passed to MathQuill's .cmd onClick
  * @param {function} props.component - component to render inside KeyInner
  * @param {string} props.html
- * @param {string} props.latex
+ * @param {number} props.keyRowWeight - accumulated weight from the parent row's children
  * @param {string} props.keystroke - passed to MathQuill's .keystrong onClick
+ * @param {string} props.latex
  * @param {number} props.weight - the weight of the row's width assigned to this key
  * @param {string} props.write - passed to MathQuill's .write onClick
  * 
@@ -24,6 +25,7 @@ function Key({
     write,
     style,
     weight,
+    keyRowWeight,
     ...rest
   }) {
   const activeMathField = useActiveMathField()
@@ -45,7 +47,10 @@ function Key({
     <button
       className={classes.KeyOuter}
       onClick={handleClick}
-      style={style}
+      style={{
+        width: `${Math.floor(100 * weight / keyRowWeight)}%`,
+        ...style
+      }}
     >
       <span className={classes.KeyInner}>
         {
