@@ -31,6 +31,7 @@ function Key({
     if (cmd) activeMathField.cmd(cmd)
     if (keystroke) activeMathField.keystroke(keystroke)
     if (write) activeMathField.write(write)
+    activeMathField.focus()
   }
 
   const html = latex

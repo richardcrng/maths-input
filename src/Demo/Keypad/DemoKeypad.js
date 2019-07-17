@@ -23,7 +23,7 @@ function DemoKeypad() {
         <KeyPad.Key html={5} cmd='5' />
         <KeyPad.Key html={6} cmd='6' />
         <KeyPad.Key latex="$\times$" cmd='\times' />
-        <KeyPad.Key latex="$\dfrac{3}{4}$" write='\frac{3}{4}' />
+        <KeyPad.Key latex="$\dfrac{\square}{\square}$" cmd='\frac' />
       </KeyPad.Row>
       <KeyPad.Row>
         <KeyPad.Key html={1} cmd='1' />
