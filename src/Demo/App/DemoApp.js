@@ -10,7 +10,7 @@ function DemoApp() {
     if (active !== inputRef.current) {
       setActive(inputRef.current)
     }
-  }, [active, inputRef.current])
+  }, [active, inputRef, setActive])
 
   return (
     <>

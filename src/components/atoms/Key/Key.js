@@ -7,6 +7,7 @@ import { useActiveMathField } from '../../organism/MathsInputEnabler';
 /**
  * 
  * @param {Object} props
+ * @param {function} props.component - component to render inside KeyInner
  * @param {string} props.html
  * @param {string} props.latex
  * @param {string} props.cmd - passed to MathQuill's .cmd onClick
@@ -14,7 +15,14 @@ import { useActiveMathField } from '../../organism/MathsInputEnabler';
  * @param {string} props.write - passed to MathQuill's .write onClick
  * 
  */
-function Key({ html: htmlFromProps, cmd, keystroke, latex, write, ...rest }) {
+function Key({
+    component: Component,
+    html: htmlFromProps,
+    cmd, keystroke,
+    latex,
+    write,
+    ...rest
+  }) {
   const activeMathField = useActiveMathField()
 
   const handleClick = () => {
@@ -35,7 +43,11 @@ function Key({ html: htmlFromProps, cmd, keystroke, latex, write, ...rest }) {
       onClick={handleClick}
     >
       <span className={classes.KeyInner}>
-        <InnerHTML html={html} />
+        {
+          Component
+            ? <Component />
+            : <InnerHTML html={html} />
+        }
       </span>
     </button>
   )
