@@ -1,23 +1,21 @@
 import React from 'react';
-import Input from '../../atoms/Input';
-import Maths from '../../atoms/Maths';
+import useMathQuillMathField from '../../../helpers/use-mathquill/useMathQuill/MathField';
 
-function MathsInput({ children, onClick, rest }, ref) {
+function MathsInput({ onClick, onFocus, ...rest }, ref) {
+  useMathQuillMathField(ref)
 
   return (
-    <Input
+    <span
       ref={ref}
-      {...{ onClick }}
+      onClick={onClick}
+      onFocus={onFocus}
       {...rest}
-    >
-      <Maths>
-        {children}
-      </Maths>
-    </Input>
+    />
   )
 }
 
 // eslint-disable-next-line no-func-assign
 MathsInput = React.forwardRef(MathsInput)
+MathsInput.displayName = 'MathsInput'
 
 export default MathsInput;

@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import useExecute from '../../../../useExecute';
 import useMathQuill from '../../useMathQuill';
+import useExecute from '../../../../hooks/useExecute/useExecute';
 
 /**
  * 
@@ -18,9 +18,11 @@ function useMathQuillMathFieldInitiate(ref, { focus = false, latex } = {}) {
   //   3. Focus on the MathField if required
 
   useExecute(() => {
-    const mathField = transformElementIntoMathField(MQ, ref);
-    if (latex) mathField.latex(latex)
-    if (focus) mathField.focus()
+    if (MQ) {
+      const mathField = transformElementIntoMathField(MQ, ref);
+      if (latex) mathField.latex(latex)
+      if (focus) mathField.focus()
+    }
   }, [MQ])
 }
 

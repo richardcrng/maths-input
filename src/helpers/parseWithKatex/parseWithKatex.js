@@ -12,7 +12,6 @@ const parseWithKatex = (string = '') => {
     (accStr, matchStr, matchIdx) => accStr.replace(matchStr, replacements[matchIdx]),
     string
   )
-
 }
 
 export default parseWithKatex

@@ -6,19 +6,20 @@ import React from 'react';
 function useMathQuill() {
   const [MQ, setMQ] = React.useState(window.MQ)
 
+  const updateMQFromWindowNow = () => {
+    setMQ(window.MQ || window.MathQuill.getInterface(2))
+  }
+
   React.useEffect(() => {
     if (!MQ) {
-      const timeoutHandler = setTimeout(() => {
-        setMQ(window.MQ || window.MathQuill.getInterface(2))
-      }, 100);
-
+      const intervalHandler = setInterval(updateMQFromWindowNow, 100);
       return function cleanup() {
-        clearTimeout(timeoutHandler)
+        clearInterval(intervalHandler)
       }
     }
-  }, [MQ, setMQ])
+  })
 
-  return MQ
+  return MQ || window.MQ || window.MathQuill.getInterface(2)
 }
 
 export default useMathQuill;
