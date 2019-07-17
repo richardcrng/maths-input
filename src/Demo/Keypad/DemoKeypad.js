@@ -1,16 +1,7 @@
 import React from 'react';
-import MathsInputEnabler from '../../organism/MathsInputEnabler';
-import KeyPad from '../../atoms/KeyPad';
+import KeyPad from '../../components/atoms/KeyPad';
 
-function Demo() {
-  return (
-    <MathsInputEnabler>
-      <DemoKeyPad />
-    </MathsInputEnabler>
-  )
-}
-
-function DemoKeyPad() {
+function DemoKeypad() {
   return (
     <KeyPad>
       <KeyPad.Row>
@@ -43,4 +34,4 @@ function DemoKeyPad() {
   )
 }
 
-export default Demo;
+export default DemoKeypad;

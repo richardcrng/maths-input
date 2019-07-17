@@ -1,8 +1,4 @@
 import React from 'react';
-import MathsKeypad from '../../molecules/MathsKeypad';
-
-const MathsInputEnablerContext = React.createContext()
-export const useMathsInputEnabler = () => React.useContext(MathsInputEnablerContext)
 
 function MathsInputEnabler({ children }) {
   const [active, setActive] = React.useState()
@@ -12,6 +8,24 @@ function MathsInputEnabler({ children }) {
       {children}
     </MathsInputEnablerContext.Provider>
   )
+}
+
+const MathsInputEnablerContext = React.createContext()
+const useMathsInputEnabler = () => React.useContext(MathsInputEnablerContext)
+
+function useActiveMathsInput() {
+  const { active } = useMathsInputEnabler()
+  return active
+}
+
+function useSetActiveMathsInput() {
+  const { setActive } = useMathsInputEnabler();
+  return setActive
+}
+
+export {
+  useActiveMathsInput,
+  useSetActiveMathsInput
 }
 
 export default MathsInputEnabler;
