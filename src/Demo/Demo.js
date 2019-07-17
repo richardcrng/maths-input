@@ -7,7 +7,14 @@ function Demo() {
   return (
     <MathsInputEnabler>
       <DemoApp />
-      <DemoKeypad />
+      <DemoKeypad
+        style={{
+          position: 'absolute',
+          bottom: '0px',
+          height: '40vh',
+          width: '100%'
+        }}
+      />
     </MathsInputEnabler>
   )
 }
