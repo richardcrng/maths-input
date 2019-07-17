@@ -4,19 +4,19 @@ import KeyPad from '../../components/atoms/KeyPad';
 
 function DemoKeypad() {
   return (
-    <KeyPad>
-      <KeyPad.Row>
-        <KeyPad.Key component={MdArrowBack} keystroke="MQ-Left" />
-        <KeyPad.Key component={MdArrowForward} keystroke="MQ-Right" />
-        <KeyPad.Key component={MdArrowUpward} keystroke="MQ-Up" />
-        <KeyPad.Key component={MdArrowDownward} keystroke="MQ-Down" />
+    <KeyPad style={{ height: '350px' }}>
+      <KeyPad.Row weight={0.5}>
+        <KeyPad.Key component={MdArrowBack} keystroke="Left" />
+        <KeyPad.Key component={MdArrowForward} keystroke="Right" />
+        <KeyPad.Key component={MdArrowUpward} keystroke="Up" />
+        <KeyPad.Key component={MdArrowDownward} keystroke="Down" />
       </KeyPad.Row>
       <KeyPad.Row>
         <KeyPad.Key html={7} cmd='7' />
         <KeyPad.Key html={8} cmd='8' />
         <KeyPad.Key html={8} cmd='9' />
-        <KeyPad.Key html="DEL" />
-        <KeyPad.Key html="AC" />
+        <KeyPad.Key html="DEL" keystroke='Backspace' />
+        <KeyPad.Key html="AC" keystroke={['Ctrl-A', 'Backspace']} />
       </KeyPad.Row>
       <KeyPad.Row>
         <KeyPad.Key html={4} cmd='4' />

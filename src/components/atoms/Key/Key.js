@@ -7,12 +7,14 @@ import { useActiveMathField } from '../../organism/MathsInputEnabler';
 /**
  * 
  * @param {Object} props
+ * @param {string|string[]} props.cmd - passed to MathQuill's .cmd onClick
  * @param {function} props.component - component to render inside KeyInner
  * @param {string} props.html
+ * @param {number} props.keyRowWeight - accumulated weight from the parent row's children
+ * @param {string|string[]} props.keystroke - passed to MathQuill's .keystrong onClick
  * @param {string} props.latex
- * @param {string} props.cmd - passed to MathQuill's .cmd onClick
- * @param {string} props.keystroke - passed to MathQuill's .keystrong onClick
- * @param {string} props.write - passed to MathQuill's .write onClick
+ * @param {number} props.weight - the weight of the row's width assigned to this key
+ * @param {string|string[]} props.write - passed to MathQuill's .write onClick
  * 
  */
 function Key({
@@ -21,16 +23,25 @@ function Key({
     cmd, keystroke,
     latex,
     write,
+    style,
+    weight,
+    keyRowWeight,
     ...rest
   }) {
   const activeMathField = useActiveMathField()
 
+  const handleEach = ({ cmd, keystroke, write }) => {
+    Object.entries({ cmd, keystroke, write }).forEach(([key, val]) => {
+      if (!val) return
+      Array.isArray(val)
+        ? val.forEach(item => activeMathField[key](item))
+        : activeMathField[key](val)
+    })
+  }
+
   const handleClick = () => {
     if (!activeMathField) return
-
-    if (cmd) activeMathField.cmd(cmd)
-    if (keystroke) activeMathField.keystroke(keystroke)
-    if (write) activeMathField.write(write)
+    handleEach({ cmd, keystroke, write })
     activeMathField.focus()
   }
 
@@ -42,6 +53,10 @@ function Key({
     <button
       className={classes.KeyOuter}
       onClick={handleClick}
+      style={{
+        width: `${Math.floor(100 * weight / keyRowWeight)}%`,
+        ...style
+      }}
     >
       <span className={classes.KeyInner}>
         {
