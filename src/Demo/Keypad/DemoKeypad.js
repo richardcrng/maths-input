@@ -2,9 +2,9 @@ import React from 'react';
 import { MdArrowBack, MdArrowDownward, MdArrowForward, MdArrowUpward, MdSend } from 'react-icons/md';
 import KeyPad from '../../components/atoms/KeyPad';
 
-function DemoKeypad({ style }) {
+function DemoKeypad({ style, when, ...rest }) {
   return (
-    <KeyPad style={{ ...style }}>
+    <KeyPad {...{ style, when, ...rest }}>
       <KeyPad.Row weight={0.5}>
         <KeyPad.Key component={MdArrowBack} keystroke="Left" />
         <KeyPad.Key component={MdArrowForward} keystroke="Right" />

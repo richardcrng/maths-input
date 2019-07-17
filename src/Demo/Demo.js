@@ -4,6 +4,18 @@ import DemoKeypad from './Keypad';
 import DemoApp from './App';
 
 function Demo() {
+  const [showKeypad, setShowKeypad] = React.useState(true)
+
+  // React.useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setShowKeypad(!showKeypad)
+  //   }, 2000);
+
+  //   return function cleanup() {
+  //     clearTimeout(timeout)
+  //   }
+  // })
+
   return (
     <MathsInputEnabler>
       <DemoApp />
@@ -14,6 +26,7 @@ function Demo() {
           height: '40vh',
           width: '100%'
         }}
+        when={showKeypad}
       />
     </MathsInputEnabler>
   )
