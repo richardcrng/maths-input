@@ -1,17 +1,50 @@
 import React from 'react';
-import MathsKeypad from '../../molecules/MathsKeypad';
-
-const MathsInputEnablerContext = React.createContext()
-export const useMathsInputEnabler = () => React.useContext(MathsInputEnablerContext)
+import useMathQuill from '../../../helpers/use-mathquill/useMathQuill';
 
 function MathsInputEnabler({ children }) {
-  const [active, setActive] = React.useState()
+  const MQ = useMathQuill()
+
+  const [activeHtmlElement, setActiveHtmlElement] = React.useState()
+  const activeMathField = MQ(activeHtmlElement)
 
   return (
-    <MathsInputEnablerContext.Provider value={{ active, setActive }}>
+    <MathsInputEnablerContext.Provider
+      value={{ activeHtmlElement, activeMathField, setActiveHtmlElement }}
+    >
       {children}
     </MathsInputEnablerContext.Provider>
   )
+}
+
+const MathsInputEnablerContext = React.createContext()
+const useMathsInputEnabler = () => React.useContext(MathsInputEnablerContext)
+
+function useActiveHtmlElement() {
+  const { activeHtmlElement } = useMathsInputEnabler()
+  return activeHtmlElement
+}
+
+function useActiveMathField() {
+  const { activeMathField } = useMathsInputEnabler()
+  return activeMathField
+}
+
+function useSetActiveHtmlElement() {
+  const { setActiveHtmlElement } = useMathsInputEnabler();
+  return setActiveHtmlElement
+}
+
+function useActiveHtmlElementState() {
+  const active = useActiveHtmlElement()
+  const setActive = useSetActiveHtmlElement()
+  return [active, setActive]
+}
+
+export {
+  useActiveHtmlElement,
+  useActiveHtmlElementState,
+  useActiveMathField,
+  useSetActiveHtmlElement
 }
 
 export default MathsInputEnabler;
