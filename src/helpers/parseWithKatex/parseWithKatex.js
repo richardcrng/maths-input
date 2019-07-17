@@ -8,8 +8,6 @@ const parseWithKatex = (string = '') => {
 
   const replacements = matches.map(str => katex.renderToString(str.slice(1, -1)))
 
-  console.log(matches, replacements)
-
   return matches.reduce(
     (accStr, matchStr, matchIdx) => accStr.replace(matchStr, replacements[matchIdx]),
     string
