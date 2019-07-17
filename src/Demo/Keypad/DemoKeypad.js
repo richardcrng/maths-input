@@ -4,8 +4,8 @@ import KeyPad from '../../components/atoms/KeyPad';
 
 function DemoKeypad() {
   return (
-    <KeyPad style={{ height: '200px' }}>
-      <KeyPad.Row style={{ height: '40%' }}>
+    <KeyPad style={{ height: '350px' }}>
+      <KeyPad.Row style={{ height: '10%' }}>
         <KeyPad.Key component={MdArrowBack} keystroke="MQ-Left" />
         <KeyPad.Key component={MdArrowForward} keystroke="MQ-Right" />
         <KeyPad.Key component={MdArrowUpward} keystroke="MQ-Up" />
@@ -33,9 +33,9 @@ function DemoKeypad() {
         <KeyPad.Key latex="$-$" cmd='-' />
       </KeyPad.Row>
       <KeyPad.Row>
-        <KeyPad.Key html={0} cmd='0' style={{ width: '30%' }} />
-        <KeyPad.Key latex="$.$" cmd='.' style={{ width: '30%' }} />
-        <KeyPad.Key latex="$,$" cmd=',' style={{ width: '30%' }} />
+        <KeyPad.Key html={0} cmd='0' />
+        <KeyPad.Key latex="$.$" cmd='.' />
+        <KeyPad.Key latex="$,$" cmd=',' />
       </KeyPad.Row>
     </KeyPad>
   )
