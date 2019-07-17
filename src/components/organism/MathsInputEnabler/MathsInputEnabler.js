@@ -10,7 +10,6 @@ function MathsInputEnabler({ children }) {
   return (
     <MathsInputEnablerContext.Provider value={{ active, setActive }}>
       {children}
-      <MathsKeypad when={true} />
     </MathsInputEnablerContext.Provider>
   )
 }

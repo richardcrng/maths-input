@@ -1,25 +1,36 @@
 import React from 'react';
 import MathsInput from '../../molecules/MathsInput/MathsInput';
 import useMathQuill from '../../../helpers/use-mathquill/useMathQuill';
+import MathsInputEnabler from '../../organism/MathsInputEnabler';
+import KeyPad from '../../atoms/KeyPad';
+import parseWithKatex from '../../../helpers/parseWithKatex';
 
 function Demo() {
-  const ref = React.useRef()
-  const MQ = useMathQuill()
-
-  React.useEffect(() => {
-    const timeoutHandler = setTimeout(() => {
-      MQ(ref.current).write('\\frac{2}{3}')
-    }, 1000);
-
-    return function cleanup() {
-      clearTimeout(timeoutHandler)
-    }
-  })
-
   return (
-    <>
-      <MathsInput ref={ref} />
-    </>
+    <MathsInputEnabler>
+      <DemoKeyPad />
+    </MathsInputEnabler>
+  )
+}
+
+function DemoKeyPad() {
+  return (
+    <KeyPad>
+      <KeyPad.Row>
+        <KeyPad.Key html={7} />
+        <KeyPad.Key html={8} />
+        <KeyPad.Key html={8} />
+        <KeyPad.Key html="DEL" />
+        <KeyPad.Key html="AC" />
+      </KeyPad.Row>
+      <KeyPad.Row>
+        <KeyPad.Key html={4} />
+        <KeyPad.Key html={5} />
+        <KeyPad.Key html={6} />
+        <KeyPad.Key html={parseWithKatex('$\\times$')} />
+        <KeyPad.Key html={parseWithKatex('$\\dfrac{3}{4}$')} />
+      </KeyPad.Row>
+    </KeyPad>
   )
 }
 
