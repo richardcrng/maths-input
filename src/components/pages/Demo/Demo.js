@@ -1,9 +1,6 @@
 import React from 'react';
-import MathsInput from '../../molecules/MathsInput/MathsInput';
-import useMathQuill from '../../../helpers/use-mathquill/useMathQuill';
 import MathsInputEnabler from '../../organism/MathsInputEnabler';
 import KeyPad from '../../atoms/KeyPad';
-import parseWithKatex from '../../../helpers/parseWithKatex';
 
 function Demo() {
   return (
@@ -29,6 +26,18 @@ function DemoKeyPad() {
         <KeyPad.Key html={6} />
         <KeyPad.Key latex="$\times$" />
         <KeyPad.Key latex="$\dfrac{3}{4}$" />
+      </KeyPad.Row>
+      <KeyPad.Row>
+        <KeyPad.Key html={1} />
+        <KeyPad.Key html={2} />
+        <KeyPad.Key html={3} />
+        <KeyPad.Key latex="$+$" />
+        <KeyPad.Key latex="$-$" />
+      </KeyPad.Row>
+      <KeyPad.Row>
+        <KeyPad.Key html={0} />
+        <KeyPad.Key latex="$.$" />
+        <KeyPad.Key latex="$,$" />
       </KeyPad.Row>
     </KeyPad>
   )
