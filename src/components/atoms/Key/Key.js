@@ -21,6 +21,7 @@ function Key({
     cmd, keystroke,
     latex,
     write,
+    style,
     ...rest
   }) {
   const activeMathField = useActiveMathField()
@@ -42,6 +43,7 @@ function Key({
     <button
       className={classes.KeyOuter}
       onClick={handleClick}
+      style={style}
     >
       <span className={classes.KeyInner}>
         {
