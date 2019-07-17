@@ -14,6 +14,7 @@ import { useActiveMathField } from '../../organism/MathsInputEnabler';
  * @param {number} props.keyRowWeight - accumulated weight from the parent row's children
  * @param {string|string[]} props.keystroke - passed to MathQuill's .keystrong onClick
  * @param {string} props.latex
+ * @param {function} props.onClick
  * @param {number} props.weight - the weight of the row's width assigned to this key
  * @param {string|string[]} props.write - passed to MathQuill's .write onClick
  * 
@@ -24,8 +25,9 @@ function Key({
     commands = [],
     cmd, keystroke,
     latex,
-    write,
+    onClick,
     style,
+    write,
     weight,
     keyRowWeight,
     ...rest
@@ -41,7 +43,8 @@ function Key({
     })
   }
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    if (onClick) return onClick(e)
     if (!activeMathField) return
     commands.forEach(handleEach)
     handleEach({ cmd, keystroke, write })

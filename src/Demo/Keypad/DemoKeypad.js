@@ -55,6 +55,7 @@ function DemoKeypad() {
         <KeyPad.Key html={0} cmd='0' />
         <KeyPad.Key latex="$.$" cmd='.' />
         <KeyPad.Key latex="$,$" cmd=',' />
+        <KeyPad.Key component={MdSend} weight={2} />
       </KeyPad.Row>
     </KeyPad>
   )
