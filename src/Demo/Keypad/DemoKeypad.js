@@ -12,6 +12,25 @@ function DemoKeypad() {
         <KeyPad.Key component={MdArrowDownward} keystroke="Down" />
       </KeyPad.Row>
       <KeyPad.Row>
+        <KeyPad.Key latex='$\square^{\square}$' cmd='^' />
+        <KeyPad.Key
+          latex='$\sqrt[\square]{\square}$'
+          commands={[{ write: '\\sqrt[]{}' }, { keystroke: ['Left', 'Left'] }]}
+        />
+        <KeyPad.Key latex='$e$' write='e' />
+        <KeyPad.Key latex='$x$' write='x' />
+        <KeyPad.Key latex='$y$' write='y' />
+        <KeyPad.Key latex='$z$' write='z' />
+      </KeyPad.Row>
+      <KeyPad.Row>
+        <KeyPad.Key latex='$\square^{2}$' cmd='^2' />
+        <KeyPad.Key latex='$\sqrt{\square}$' cmd='\sqrt' />
+        <KeyPad.Key latex='$k$' write='k' />
+        <KeyPad.Key latex='$n$' write='n' />
+        <KeyPad.Key latex='$($' write='(' />
+        <KeyPad.Key latex='$)$' write=')' />
+      </KeyPad.Row>
+      <KeyPad.Row>
         <KeyPad.Key html={7} cmd='7' />
         <KeyPad.Key html={8} cmd='8' />
         <KeyPad.Key html={8} cmd='9' />

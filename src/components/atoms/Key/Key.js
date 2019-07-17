@@ -7,6 +7,7 @@ import { useActiveMathField } from '../../organism/MathsInputEnabler';
 /**
  * 
  * @param {Object} props
+ * @param {Object[]} props.commands
  * @param {string|string[]} props.cmd - passed to MathQuill's .cmd onClick
  * @param {function} props.component - component to render inside KeyInner
  * @param {string} props.html
@@ -20,6 +21,7 @@ import { useActiveMathField } from '../../organism/MathsInputEnabler';
 function Key({
     component: Component,
     html: htmlFromProps,
+    commands = [],
     cmd, keystroke,
     latex,
     write,
@@ -41,6 +43,7 @@ function Key({
 
   const handleClick = () => {
     if (!activeMathField) return
+    commands.forEach(handleEach)
     handleEach({ cmd, keystroke, write })
     activeMathField.focus()
   }
