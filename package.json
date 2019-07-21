@@ -1,7 +1,7 @@
 {
   "name": "maths-input",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "main": "dist/main/index.js",
   "dependencies": {
     "jquery": "^3.4.1",
     "katex": "^0.10.2",
@@ -15,7 +15,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dist": "npx babel src --out-dir dist",
     "test": "react-scripts test",
+    "prepublishOnly": "npm run dist",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -32,5 +34,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0"
   }
 }
