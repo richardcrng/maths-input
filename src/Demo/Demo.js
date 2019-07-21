@@ -4,17 +4,8 @@ import DemoKeypad from './Keypad';
 import DemoApp from './App';
 
 function Demo() {
+  // eslint-disable-next-line no-unused-vars
   const [showKeypad, setShowKeypad] = React.useState(true)
-
-  // React.useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     setShowKeypad(!showKeypad)
-  //   }, 2000);
-
-  //   return function cleanup() {
-  //     clearTimeout(timeout)
-  //   }
-  // })
 
   return (
     <MathsInputEnabler>

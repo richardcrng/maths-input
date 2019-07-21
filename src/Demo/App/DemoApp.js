@@ -3,6 +3,7 @@ import { useActiveHtmlElementState } from '../../components/organism/MathsInputE
 import MathsInput from '../../components/molecules/MathsInput/MathsInput';
 
 function DemoApp() {
+  // eslint-disable-next-line no-unused-vars
   const [active, setActive] = useActiveHtmlElementState()
   const inputRefOne = React.useRef()
   const inputRefTwo = React.useRef()
