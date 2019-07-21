@@ -1,6 +1,7 @@
 {
   "name": "maths-input",
   "version": "0.1.0",
+  "main": "dist/main/index.js",
   "private": true,
   "dependencies": {
     "jquery": "^3.4.1",
@@ -15,7 +16,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dist": "npx babel src --out-dir dist",
     "test": "react-scripts test",
+    "prepublishOnly": "npm run dist",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
