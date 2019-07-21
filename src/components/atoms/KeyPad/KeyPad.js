@@ -4,7 +4,9 @@ import Key from '../Key';
 import KeyRow from '../KeyRow';
 import addPropsToChildren from '../../../helpers/addPropsToChildren';
 
-function KeyPad({ children, style }) {
+function KeyPad({ children, style, when }) {
+  if (!when) return null
+
   const formattedKeyRows = React.Children.map(children,
     ({ type: Child, props: { weight = 1, ...childProps } }) => (
       <Child weight={weight} {...childProps} />

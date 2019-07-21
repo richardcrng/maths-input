@@ -3,18 +3,23 @@ import { useActiveHtmlElementState } from '../../components/organism/MathsInputE
 import MathsInput from '../../components/molecules/MathsInput/MathsInput';
 
 function DemoApp() {
-  const inputRef = React.useRef()
+  // eslint-disable-next-line no-unused-vars
   const [active, setActive] = useActiveHtmlElementState()
+  const inputRefOne = React.useRef()
+  const inputRefTwo = React.useRef()
   
-  React.useEffect(() => {
-    if (active !== inputRef.current) {
-      setActive(inputRef.current)
-    }
-  }, [active, inputRef, setActive])
-
   return (
     <>
-      <MathsInput ref={inputRef} />
+      <MathsInput
+        ref={inputRefOne}
+        onClick={() => setActive(inputRefOne.current)}
+        style={{ display: 'block', margin: '10px', width: '50px' }}
+      />
+      <MathsInput
+        ref={inputRefTwo}
+        onClick={() => setActive(inputRefTwo.current)}
+        style={{ display: 'block', margin: '10px', width: '50px' }}
+      />
     </>
   )
 }

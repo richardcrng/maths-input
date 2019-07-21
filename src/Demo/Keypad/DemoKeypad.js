@@ -2,14 +2,33 @@ import React from 'react';
 import { MdArrowBack, MdArrowDownward, MdArrowForward, MdArrowUpward, MdSend } from 'react-icons/md';
 import KeyPad from '../../components/atoms/KeyPad';
 
-function DemoKeypad() {
+function DemoKeypad({ style, when, ...rest }) {
   return (
-    <KeyPad style={{ height: '350px' }}>
+    <KeyPad {...{ style, when, ...rest }}>
       <KeyPad.Row weight={0.5}>
         <KeyPad.Key component={MdArrowBack} keystroke="Left" />
         <KeyPad.Key component={MdArrowForward} keystroke="Right" />
         <KeyPad.Key component={MdArrowUpward} keystroke="Up" />
         <KeyPad.Key component={MdArrowDownward} keystroke="Down" />
+      </KeyPad.Row>
+      <KeyPad.Row>
+        <KeyPad.Key latex='$\square^{\square}$' cmd='^' />
+        <KeyPad.Key
+          latex='$\sqrt[\square]{\square}$'
+          commands={[{ write: '\\sqrt[]{}' }, { keystroke: ['Left', 'Left'] }]}
+        />
+        <KeyPad.Key latex='$e$' write='e' />
+        <KeyPad.Key latex='$x$' write='x' />
+        <KeyPad.Key latex='$y$' write='y' />
+        <KeyPad.Key latex='$z$' write='z' />
+      </KeyPad.Row>
+      <KeyPad.Row>
+        <KeyPad.Key latex='$\square^{2}$' cmd='^2' />
+        <KeyPad.Key latex='$\sqrt{\square}$' cmd='\sqrt' />
+        <KeyPad.Key latex='$k$' write='k' />
+        <KeyPad.Key latex='$n$' write='n' />
+        <KeyPad.Key latex='$($' write='(' />
+        <KeyPad.Key latex='$)$' write=')' />
       </KeyPad.Row>
       <KeyPad.Row>
         <KeyPad.Key html={7} cmd='7' />
@@ -36,6 +55,7 @@ function DemoKeypad() {
         <KeyPad.Key html={0} cmd='0' />
         <KeyPad.Key latex="$.$" cmd='.' />
         <KeyPad.Key latex="$,$" cmd=',' />
+        <KeyPad.Key component={MdSend} weight={2} />
       </KeyPad.Row>
     </KeyPad>
   )

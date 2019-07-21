@@ -1,7 +1,7 @@
 import React from 'react';
 import useMathQuillMathField from '../../../helpers/use-mathquill/useMathQuill/MathField';
 
-function MathsInput({ onClick, onFocus, ...rest }, ref) {
+function MathsInput({ onClick, onFocus, style, ...rest }, ref) {
   useMathQuillMathField(ref)
 
   return (
@@ -9,6 +9,7 @@ function MathsInput({ onClick, onFocus, ...rest }, ref) {
       ref={ref}
       onClick={onClick}
       onFocus={onFocus}
+      style={style}
       {...rest}
     />
   )
