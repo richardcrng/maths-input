@@ -7,9 +7,12 @@ function Demo() {
   // eslint-disable-next-line no-unused-vars
   const [showKeypad, setShowKeypad] = React.useState(true)
 
+  const handleKeypadHide = () => setShowKeypad(false)
+  const handleKeypadShow = () => setShowKeypad(true)
+
   return (
     <MathsInputEnabler>
-      <DemoApp />
+      <DemoApp {...{ handleKeypadHide, handleKeypadShow }} />
       <DemoKeypad
         style={{
           position: 'absolute',
@@ -17,7 +20,8 @@ function Demo() {
           height: '40vh',
           width: '100%'
         }}
-        when={showKeypad}
+        // when={showKeypad}
+        when={true}
       />
     </MathsInputEnabler>
   )
