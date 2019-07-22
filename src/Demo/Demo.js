@@ -1,9 +1,9 @@
-import * as R from 'ramda'
 import React from 'react';
 import { useClickAway } from 'react-use';
 import MathsInputEnabler from '../components/organism/MathsInputEnabler';
 import DemoKeypad from './Keypad';
 import DemoApp from './App';
+import isElementAMathQuillBlock from '../helpers/isElementAMathQuillBlock';
 
 function Demo() {
   // eslint-disable-next-line no-unused-vars
@@ -14,8 +14,7 @@ function Demo() {
 
   const keypadRef = React.useRef()
   useClickAway(keypadRef, (event) => {
-    const isEventTargetMathquillBlock = R.path(['attributes', 'mathquill-block-id'], event.target)
-    if (isEventTargetMathquillBlock) {
+    if (isElementAMathQuillBlock(event.target)) {
       console.log('a mathquill-block', event.target)
     } else {
       console.log('not a mathquill-block', event.target)
