@@ -1,11 +1,11 @@
-import MathsInputEnabler from "./MathsInputEnabler";
+import MathsEnabler from "./MathsEnabler";
 
 import {
   useActiveHtmlElement,
   useActiveHtmlElementState,
   useActiveMathField,
   useSetActiveHtmlElement
-} from './MathsInputEnabler'
+} from './MathsEnabler'
 
 export {
   useActiveHtmlElement,
@@ -14,4 +14,4 @@ export {
   useSetActiveHtmlElement
 }
 
-export default MathsInputEnabler
+export default MathsEnabler

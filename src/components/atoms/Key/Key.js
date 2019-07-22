@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Key.module.css';
 import InnerHTML from '../InnerHTML';
 import parseWithKatex from '../../../helpers/parseWithKatex';
-import { useActiveMathField } from '../../organism/MathsInputEnabler';
+import { useActiveMathField } from '../../organism/MathsEnabler';
 
 /**
  * 

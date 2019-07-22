@@ -2,7 +2,7 @@ import React from 'react';
 import { useClickAway } from 'react-use';
 import DemoKeypad from './Keypad';
 import DemoApp from './App';
-import MathsInputEnabler from '../components/organism/MathsInputEnabler';
+import MathsEnabler from '../components/organism/MathsEnabler';
 import isElementAMathQuillBlock from '../helpers/isElementAMathQuillBlock';
 
 function Demo() {
@@ -23,7 +23,7 @@ function Demo() {
   })
 
   return (
-    <MathsInputEnabler>
+    <MathsEnabler>
       <DemoApp {...{ handleKeypadHide, handleKeypadShow }} />
       <DemoKeypad
         ref={keypadRef}
@@ -35,7 +35,7 @@ function Demo() {
         }}
         when={showKeypad}
       />
-    </MathsInputEnabler>
+    </MathsEnabler>
   )
 }
 
