@@ -12,16 +12,20 @@ function DemoApp({ handleKeypadHide, handleKeypadShow }) {
     <>
       <MathsInput
         ref={inputRefOne}
-        onBlur={handleKeypadHide}
         onFocus={handleKeypadShow}
-        onClick={() => setActive(inputRefOne.current)}
+        onClick={() => {
+          handleKeypadShow()
+          setActive(inputRefOne.current)
+        }}
         style={{ display: 'block', margin: '10px', width: '50px' }}
       />
       <MathsInput
         ref={inputRefTwo}
-        onBlur={handleKeypadHide}
         onFocus={handleKeypadShow}
-        onClick={() => setActive(inputRefTwo.current)}
+        onClick={() => {
+          handleKeypadShow()
+          setActive(inputRefTwo.current)
+        }}
         style={{ display: 'block', margin: '10px', width: '50px' }}
       />
     </>

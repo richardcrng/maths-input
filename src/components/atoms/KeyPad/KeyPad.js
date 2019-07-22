@@ -4,11 +4,8 @@ import Key from '../Key';
 import KeyRow from '../KeyRow';
 import addPropsToChildren from '../../../helpers/addPropsToChildren';
 
-function KeyPad({ children, style: propsStyle, when }) {
-  const style = when
-    ? propsStyle
-    // : { ...style, display: 'none' }
-    : propsStyle
+function KeyPad({ children, style, when }, ref) {
+  if (!when) return null
 
   const formattedKeyRows = React.Children.map(children,
     ({ type: Child, props: { weight = 1, ...childProps } }) => (
@@ -21,6 +18,7 @@ function KeyPad({ children, style: propsStyle, when }) {
 
   return (
     <div
+      ref={ref}
       className={classes.KeyPad}
       style={style}
     >
@@ -28,6 +26,10 @@ function KeyPad({ children, style: propsStyle, when }) {
     </div>
   )
 }
+
+// eslint-disable-next-line no-func-assign
+KeyPad = React.forwardRef(KeyPad)
+KeyPad.displayName = 'KeyPad'
 
 KeyPad.Row = KeyRow
 KeyPad.Key = Key
