@@ -2,7 +2,7 @@ import React from 'react';
 import { useActiveHtmlElementState } from '../../components/organism/MathsInputEnabler';
 import MathsInput from '../../components/molecules/MathsInput/MathsInput';
 
-function DemoApp() {
+function DemoApp({ handleKeypadHide, handleKeypadShow }) {
   // eslint-disable-next-line no-unused-vars
   const [active, setActive] = useActiveHtmlElementState()
   const inputRefOne = React.useRef()
@@ -12,12 +12,20 @@ function DemoApp() {
     <>
       <MathsInput
         ref={inputRefOne}
-        onClick={() => setActive(inputRefOne.current)}
+        onFocus={handleKeypadShow}
+        onClick={() => {
+          handleKeypadShow()
+          setActive(inputRefOne.current)
+        }}
         style={{ display: 'block', margin: '10px', width: '50px' }}
       />
       <MathsInput
         ref={inputRefTwo}
-        onClick={() => setActive(inputRefTwo.current)}
+        onFocus={handleKeypadShow}
+        onClick={() => {
+          handleKeypadShow()
+          setActive(inputRefTwo.current)
+        }}
         style={{ display: 'block', margin: '10px', width: '50px' }}
       />
     </>
