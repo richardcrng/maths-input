@@ -1,7 +1,7 @@
 import isAMathQuillElement from '../helpers/isAMathQuillElement';
 import Maths from '../components/atoms/Maths';
 import MathsKeypad from '../components/atoms/KeyPad';
-import MathsEnabler from '../components/organism/MathsEnabler';
+import MathsEnabler, { useActiveHtmlElement, useActiveHtmlElementState, useActiveMathField, useSetActiveHtmlElement } from '../components/organism/MathsEnabler';
 import MathsInput from '../components/molecules/MathsInput';
 import useKeyListeners from '../helpers/hooks/useKeyListeners';
 import useMathQuill from '../helpers/use-mathquill';
@@ -15,8 +15,12 @@ export {
   MathsKeypad,
   parseWithKatex,
   useKeyListeners,
+  useActiveHtmlElement,
+  useActiveHtmlElementState,
+  useActiveMathField,
   useMathQuill,
-  useMathQuillMathField
+  useMathQuillMathField,
+  useSetActiveHtmlElement
 }
 
 export default Maths
