@@ -38,6 +38,16 @@ A `<MathsEnabler />` is a top-level component that:
 |`children`|`node`|Primary content|
 
 ## `MathsInput`
+|Name|Type|Description|
+|---|---|---|
+|`ref`<sup>*</sup>|`React.MutableRefObject`|A [React ref](https://reactjs.org/docs/refs-and-the-dom.html)|
+|`id`<sup>*</sup>|`string`||
+|`onBlur`<sup>*</sup>|`function`|Callback function|
+|`onClick`<sup>*</sup>|`function`|Callback function|
+|`onFocus`<sup>*</sup>|`function`|Callback function|
+|`style`<sup>*</sup>|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
+
+<sup>*</sup>Optional
 
 ## `MathsKeypad`
 ### Props
@@ -48,7 +58,7 @@ A `<MathsEnabler />` is a top-level component that:
 |`style`<sup>*</sup>|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
 |`when`<sup>*</sup>|`boolean`|Whether or not the MathsKeypad is showing|
 
-<sup>*</sup> Optional
+<sup>*</sup>Optional
 
 ## `MathsKeypad.Row`
 ### Props
