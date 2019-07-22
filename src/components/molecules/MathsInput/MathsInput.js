@@ -1,16 +1,13 @@
 import React from 'react';
 import useMathQuillMathField from '../../../helpers/use-mathquill/useMathQuill/MathField';
 
-function MathsInput({ onBlur, onClick, onFocus, style, ...rest }, ref) {
+function MathsInput({ id, onBlur, onClick, onFocus, style, ...rest }, ref) {
   useMathQuillMathField(ref)
 
   return (
     <span
       ref={ref}
-      onBlur={onBlur}
-      onClick={onClick}
-      onFocus={onFocus}
-      style={style}
+      {...{ id, onBlur, onClick, onFocus, style }}
       {...rest}
     />
   )
