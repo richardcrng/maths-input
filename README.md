@@ -43,9 +43,11 @@ A `<MathsEnabler />` is a top-level component that:
 ### Props
 |Name|Type|Description|
 |---|---|---|
-|`children`|`node`|`MathsKeypad.Row`s|
-|`style`|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
-|`when`|`boolean`|Whether or not the MathsKeypad is showing|
+|`children`<sup>*</sup>|`node`|`MathsKeypad.Row`s|
+|`inputRef`<sup>*</sup>|`React.MutableRefObject`|The [React ref](https://reactjs.org/docs/refs-and-the-dom.html) attached to the [`MathsInput`](#mathsinput) which the keypad should create input for|
+|`style`<sup>*</sup>|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
+|`when`<sup>*</sup>|`boolean`|Whether or not the MathsKeypad is showing|
+<sup>*</sup> Optional
 
 ## `MathsKeypad.Row`
 ### Props
