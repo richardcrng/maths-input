@@ -34,7 +34,6 @@ function Demo() {
           width: '100%'
         }}
         when={showKeypad}
-        // when={true}
       />
     </MathsInputEnabler>
   )
