@@ -10,6 +10,12 @@ A `<MathsInputEnabler />` is a top-level component that:
 |---|---|---|
 |`children`|`node`|Primary content|
 
+### Example
+```js
+import React from 'react';
+import { MathsInputEnabler, MathsInput }
+```
+
 ## `MathsInput`
 
 ## `MathsKeypad`
