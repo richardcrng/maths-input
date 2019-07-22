@@ -105,3 +105,8 @@ A `<MathsEnabler />` is a top-level component that:
 ## `useMathQuill`
 
 ## `useMathQuillMathField`
+
+# Helpers
+## `isAMathQuillElement`
+
+## `parseWithKatex`
