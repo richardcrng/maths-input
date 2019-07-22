@@ -1,6 +1,6 @@
 {
-  "name": "maths-input",
-  "version": "0.1.1",
+  "name": "react-maths",
+  "version": "0.0.1",
   "main": "dist/main/index.js",
   "dependencies": {
     "jquery": "^3.4.1",

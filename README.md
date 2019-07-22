@@ -1,7 +1,7 @@
 # Components
 
-## `MathsInputEnabler`
-A `<MathsInputEnabler />` is a top-level component that:
+## `MathsEnabler`
+A `<MathsEnabler />` is a top-level component that:
 - Makes [`maths-input`'s hooks](#hooks) available to nested components; and
 - Thereby allows a nested [`MathsKeypad`](#mathskeypad) to provide a nested [`MathsInput`].
 
