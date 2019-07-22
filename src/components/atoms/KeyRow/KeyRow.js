@@ -1,6 +1,11 @@
 import React from 'react';
-import classes from './KeyRow.module.css';
+import styled from 'styled-components';
 import addPropsToChildren from '../../../helpers/addPropsToChildren';
+
+const KeyRowDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 
 /**
  * 
@@ -19,15 +24,14 @@ function KeyRow({ children, style, weight: rowWeight = 1, keyPadWeight = 1 }) {
   )
 
   return (
-    <div
-      className={classes.KeyRow}
+    <KeyRowDiv
       style={{
         height: `${Math.floor(100 * rowWeight/keyPadWeight)}%`,
         ...style
       }}
     >
       {addPropsToChildren({ keyRowWeight }, formattedKeys)}
-    </div>
+    </KeyRowDiv>
   )
 }
 

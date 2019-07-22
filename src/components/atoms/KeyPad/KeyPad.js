@@ -1,8 +1,15 @@
 import React from 'react';
-import classes from './KeyPad.module.css'
+import styled from 'styled-components'
 import Key from '../Key';
 import KeyRow from '../KeyRow';
 import addPropsToChildren from '../../../helpers/addPropsToChildren';
+
+const KeyPadDiv = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+`
 
 function KeyPad({ children, style, when }, ref) {
   if (!when) return null
@@ -17,13 +24,12 @@ function KeyPad({ children, style, when }, ref) {
   )
 
   return (
-    <div
+    <KeyPadDiv
       ref={ref}
-      className={classes.KeyPad}
       style={style}
     >
       {addPropsToChildren({ keyPadWeight }, formattedKeyRows)}
-    </div>
+    </KeyPadDiv>
   )
 }
 
