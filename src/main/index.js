@@ -15,8 +15,12 @@ export {
   MathsKeypad,
   parseWithKatex,
   useKeyListeners,
+  useActiveHtmlElement,
+  useActiveHtmlElementState,
+  useActiveMathField,
   useMathQuill,
-  useMathQuillMathField
+  useMathQuillMathField,
+  useSetActiveHtmlElement
 }
 
 export default Maths
