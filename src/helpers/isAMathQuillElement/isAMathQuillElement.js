@@ -8,7 +8,7 @@ const hasMQClass = element => {
 const isAMathQuillElement = element => Boolean(
   hasMQClass(element)
   || path(['attributes', 'mathquill-block-id'], element)
-  || path(['attributes', 'mathquill-command-id'])
+  || path(['attributes', 'mathquill-command-id'], element)
 )
 
 export default isAMathQuillElement
