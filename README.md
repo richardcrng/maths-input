@@ -1,68 +1,80 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Setup
 
-## Available Scripts
+```bash
+npm install --s react-maths
+```
 
-In the project directory, you can run:
+```js
+import React from 'react';
+import { MathsEnabler, MathsInput, MathsKeypad } from 'react-maths'
 
-### `npm start`
+function App() {
+  return (
+    <MathsEnabler>
+      <MathsInput />
+      <MathsKeypad>
+        <MathsKeypad.Row>
+          <MathsKeypad.Key latex='7' cmd='7' />
+          <MathsKeypad.Key latex='8' cmd='8' />
+          <MathsKeypad.Key latex='$+$' cmd='+' />
+          <MathsKeypad.Key latex='$\times$' cmd='\times' />
+        </MathsKeypad.Row>
+      </MathsKeypad>
+    </MathsEnabler>
+  )
+}
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Components
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## `MathsEnabler`
+A `<MathsEnabler />` is a top-level component that:
+- Makes [`react-maths`'s hooks](#hooks) available to nested components; and
+- Thereby allows a nested [`MathsKeypad`](#mathskeypad) to provide a nested [`MathsInput`] with input.
 
-### `npm test`
+### Props
+|Name|Type|Description|
+|---|---|---|
+|`children`|`node`|Primary content|
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## `MathsInput`
 
-### `npm run build`
+## `MathsKeypad`
+### Props
+|Name|Type|Description|
+|---|---|---|
+|`children`|`node`|`MathsKeypad.Row`s|
+|`style`|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
+|`when`|`boolean`|Whether or not the MathsKeypad is showing|
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## `MathsKeypad.Row`
+### Props
+|Name|Type|Description|
+|---|---|---|
+|`children`|`node`|`MathsKeypad.Key`s|
+|`style`|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
+|`weight`|`number`|Weight for the `MathsKeypad.Row`'s height|
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## `MathsKeypad.Key`
+### Props
+|Name|Type|Description|
+|---|---|---|
+|`component`|`function`|Component to be rendered|
+|`html`|`string`|String to use as inner HTML|
+|`latex`|`string`|Dollar delimited LaTeX code|
+|`commands`|`Object[]`|[KeyCommands](#keycommands) to be processed|
+|`cmd`|`string`|Passed to MathQuill's [`cmd`](http://docs.mathquill.com/en/latest/Api_Methods/#cmdlatex_string) method for the current [`MathsInput`](#mathsinput)|
+|`keystroke`|`string`|Passed to MathQuill's [`keystroke`](http://docs.mathquill.com/en/latest/Api_Methods/#keystrokekeys) method for the current [`MathsInput`](#mathsinput)|
+|`write`|`string`|Passed to MathQuill's [`write`](http://docs.mathquill.com/en/latest/Api_Methods/#writelatex_string) method for the current [`MathsInput`](#mathsinput)|
+|`style`|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
+|`weight`|`number`|Weight for the `MathsKeypad.Key`'s width|
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### KeyCommands
+|Key|Value Type|Description|
+|---|---|---|
+|`cmd`|`string`|Passed to MathQuill's [`cmd`](http://docs.mathquill.com/en/latest/Api_Methods/#cmdlatex_string) method for the current [`MathsInput`](#mathsinput)|
+|`keystroke`|`string`|Passed to MathQuill's [`keystroke`](http://docs.mathquill.com/en/latest/Api_Methods/#keystrokekeys) method for the current [`MathsInput`](#mathsinput)|
+|`write`|`string`|Passed to MathQuill's [`write`](http://docs.mathquill.com/en/latest/Api_Methods/#writelatex_string) method for the current [`MathsInput`](#mathsinput)|
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Hooks

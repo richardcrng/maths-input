@@ -1,9 +1,9 @@
 import React from 'react';
 import { useClickAway } from 'react-use';
-import MathsInputEnabler from '../components/organism/MathsInputEnabler';
 import DemoKeypad from './Keypad';
 import DemoApp from './App';
-import isElementAMathQuillBlock from '../helpers/isElementAMathQuillBlock';
+import MathsEnabler from '../components/organism/MathsEnabler';
+import isAMathQuillElement from '../helpers/isAMathQuillElement';
 
 function Demo() {
   // eslint-disable-next-line no-unused-vars
@@ -14,7 +14,7 @@ function Demo() {
 
   const keypadRef = React.useRef()
   useClickAway(keypadRef, (event) => {
-    if (isElementAMathQuillBlock(event.target)) {
+    if (isAMathQuillElement(event.target)) {
       console.log('a mathquill-block', event.target)
     } else {
       console.log('not a mathquill-block', event.target)
@@ -23,7 +23,7 @@ function Demo() {
   })
 
   return (
-    <MathsInputEnabler>
+    <MathsEnabler>
       <DemoApp {...{ handleKeypadHide, handleKeypadShow }} />
       <DemoKeypad
         ref={keypadRef}
@@ -35,7 +35,7 @@ function Demo() {
         }}
         when={showKeypad}
       />
-    </MathsInputEnabler>
+    </MathsEnabler>
   )
 }
 

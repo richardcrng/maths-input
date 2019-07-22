@@ -1,6 +1,6 @@
 import React from 'react';
-import { useActiveHtmlElementState } from '../../components/organism/MathsInputEnabler';
-import MathsInput from '../../components/molecules/MathsInput/MathsInput';
+import { useActiveHtmlElementState } from '../../components/organism/MathsEnabler';
+import MathsInput from '../../components/molecules/MathsInput';
 
 function DemoApp({ handleKeypadHide, handleKeypadShow }) {
   // eslint-disable-next-line no-unused-vars

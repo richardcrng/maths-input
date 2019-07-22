@@ -1,36 +1,36 @@
 import React from 'react';
 import useMathQuill from '../../../helpers/use-mathquill/useMathQuill';
 
-function MathsInputEnabler({ children }) {
+function MathsEnabler({ children }) {
   const MQ = useMathQuill()
 
   const [activeHtmlElement, setActiveHtmlElement] = React.useState()
   const activeMathField = MQ(activeHtmlElement)
 
   return (
-    <MathsInputEnablerContext.Provider
+    <MathsEnablerContext.Provider
       value={{ activeHtmlElement, activeMathField, setActiveHtmlElement }}
     >
       {children}
-    </MathsInputEnablerContext.Provider>
+    </MathsEnablerContext.Provider>
   )
 }
 
-const MathsInputEnablerContext = React.createContext()
-const useMathsInputEnabler = () => React.useContext(MathsInputEnablerContext)
+const MathsEnablerContext = React.createContext()
+const useMathsEnabler = () => React.useContext(MathsEnablerContext)
 
 function useActiveHtmlElement() {
-  const { activeHtmlElement } = useMathsInputEnabler()
+  const { activeHtmlElement } = useMathsEnabler()
   return activeHtmlElement
 }
 
 function useActiveMathField() {
-  const { activeMathField } = useMathsInputEnabler()
+  const { activeMathField } = useMathsEnabler()
   return activeMathField
 }
 
 function useSetActiveHtmlElement() {
-  const { setActiveHtmlElement } = useMathsInputEnabler();
+  const { setActiveHtmlElement } = useMathsEnabler();
   return setActiveHtmlElement
 }
 
@@ -47,4 +47,4 @@ export {
   useSetActiveHtmlElement
 }
 
-export default MathsInputEnabler;
+export default MathsEnabler;
