@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import InnerHTML from '../InnerHTML';
 import parseWithKatex from '../../../helpers/parseWithKatex';
 import { useActiveMathField, useActiveHtmlElement } from '../../organism/MathsEnabler';
-import { useKeyPadOnInput } from '../KeyPad';
+import { useKeyPadInputRef, useKeyPadOnInput } from '../KeyPad';
+import useMathQuill from '../../../helpers/use-mathquill/useMathQuill';
 
 const KeyOuter = styled.button`
   height: 100%;
@@ -51,9 +52,16 @@ function Key({
     keyRowWeight,
     ...rest
   }) {
+  const MQ = useMathQuill()
+  const keyPadInputRef = useKeyPadInputRef() || {}
+  const keyPadInputElement = keyPadInputRef.current
+  const KeyPadMathField = MQ(keyPadInputElement)
   const activeHtmlElement = useActiveHtmlElement()
   const activeMathField = useActiveMathField()
   const onInput = useKeyPadOnInput()
+
+  const element = keyPadInputElement || activeHtmlElement
+  const mathField = KeyPadMathField || activeMathField
 
   const handleEach = ({ cmd, keystroke, write }) => {
     Object.entries({ cmd, keystroke, write }).forEach(([key, val]) => {
@@ -66,11 +74,11 @@ function Key({
 
   const handleClick = (e) => {
     if (onClick) return onClick(e)
-    if (!activeMathField) return
+    if (!mathField) return
     commands.forEach(handleEach)
     handleEach({ cmd, keystroke, write })
-    activeMathField.focus()
-    if (onInput) onInput(e, { element: activeHtmlElement, mathField: activeMathField })
+    mathField.focus()
+    if (onInput) onInput(e, { element, mathField })
   }
 
   const html = latex
