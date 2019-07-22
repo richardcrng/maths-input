@@ -1,3 +1,4 @@
+import isElementAMathQuillBlock from '../helpers/isElementAMathQuillBlock';
 import MathsKeyPad from '../components/atoms/KeyPad';
 import MathsInputEnabler from '../components/organism/MathsInputEnabler';
 import MathsInput from '../components/molecules/MathsInput';
@@ -7,6 +8,7 @@ import useMathQuillMathField from '../helpers/use-mathquill/useMathQuill/MathFie
 import parseWithKatex from '../helpers/parseWithKatex';
 
 export {
+  isElementAMathQuillBlock,
   MathsKeyPad,
   MathsInput,
   MathsInputEnabler,
