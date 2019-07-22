@@ -1,6 +1,10 @@
-
+# Components
 
 ## `MathsInputEnabler`
+A `<MathsInputEnabler />` is a top-level component that:
+- Makes [`maths-input`'s hooks](#hooks) available to nested components; and
+- Thereby allows a nested [`MathsKeypad`](#mathskeypad) to provide a nested [`MathsInput`].
+
 ### Props
 |Name|Type|Description|
 |---|---|---|
@@ -8,23 +12,23 @@
 
 ## `MathsInput`
 
-## `KeyPad`
+## `MathsKeypad`
 ### Props
 |Name|Type|Description|
 |---|---|---|
-|`children`|`node`|`KeyPad.Row`s|
+|`children`|`node`|`MathsKeypad.Row`s|
 |`style`|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
-|`when`|`boolean`|Whether or not the KeyPad is showing|
+|`when`|`boolean`|Whether or not the MathsKeypad is showing|
 
-## `KeyPad.Row`
+## `MathsKeypad.Row`
 ### Props
 |Name|Type|Description|
 |---|---|---|
-|`children`|`node`|`KeyPad.Key`s|
+|`children`|`node`|`MathsKeypad.Key`s|
 |`style`|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
-|`weight`|`number`|Weight for the `KeyPad.Row`'s height|
+|`weight`|`number`|Weight for the `MathsKeypad.Row`'s height|
 
-## `KeyPad.Key`
+## `MathsKeypad.Key`
 ### Props
 |Name|Type|Description|
 |---|---|---|
@@ -36,7 +40,7 @@
 |`keystroke`|`string`|Passed to MathQuill's [`keystroke`](http://docs.mathquill.com/en/latest/Api_Methods/#keystrokekeys) method for the current [`MathsInput`](#mathsinput)|
 |`write`|`string`|Passed to MathQuill's [`write`](http://docs.mathquill.com/en/latest/Api_Methods/#writelatex_string) method for the current [`MathsInput`](#mathsinput)|
 |`style`|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
-|`weight`|`number`|Weight for the `KeyPad.Key`'s width|
+|`weight`|`number`|Weight for the `MathsKeypad.Key`'s width|
 
 #### KeyCommands
 |Key|Value Type|Description|
@@ -44,3 +48,6 @@
 |`cmd`|`string`|Passed to MathQuill's [`cmd`](http://docs.mathquill.com/en/latest/Api_Methods/#cmdlatex_string) method for the current [`MathsInput`](#mathsinput)|
 |`keystroke`|`string`|Passed to MathQuill's [`keystroke`](http://docs.mathquill.com/en/latest/Api_Methods/#keystrokekeys) method for the current [`MathsInput`](#mathsinput)|
 |`write`|`string`|Passed to MathQuill's [`write`](http://docs.mathquill.com/en/latest/Api_Methods/#writelatex_string) method for the current [`MathsInput`](#mathsinput)|
+
+
+# Hooks
