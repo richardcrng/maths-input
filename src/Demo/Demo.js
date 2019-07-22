@@ -1,8 +1,8 @@
 import React from 'react';
 import { useClickAway } from 'react-use';
-import MathsInputEnabler from '../components/organism/MathsInputEnabler';
 import DemoKeypad from './Keypad';
 import DemoApp from './App';
+import MathsInputEnabler from '../components/organism/MathsInputEnabler';
 import isElementAMathQuillBlock from '../helpers/isElementAMathQuillBlock';
 
 function Demo() {
