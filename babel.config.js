@@ -1,7 +1,6 @@
 const presets = [
   [
     "@babel/env",
-    "babel-plugin-styled-components",
     {
       targets: {
         edge: "17",
@@ -22,4 +21,8 @@ const presets = [
   // ],
 ];
 
-module.exports = { presets };
+const plugins = [
+  'babel-plugin-styled-components'
+]
+
+module.exports = { presets, plugins };
