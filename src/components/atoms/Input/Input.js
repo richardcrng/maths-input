@@ -1,17 +1,30 @@
 import React from 'react';
-import classes from './Input.module.css'
+import styled from 'styled-components'
+
+const DivStyledAsInput = styled.div`
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  background-color: white;
+  background-color: -moz-field;
+  border: 1px solid darkgray;
+  box-shadow: 1px 1px 1px 0 lightgray inset;  
+  font: -moz-field;
+  font: -webkit-small-control;
+  margin-top: 5px;
+  padding: 2px 3px;
+  width: 398px;    
+`
 
 function Input({ children, onClick, ...rest }, ref) {
   return (
-    <div
+    <DivStyledAsInput
       ref={ref}
-      className={classes.Input}
       contentEditable
       {...{ onClick }}
       {...rest}
     >
       {children}
-    </div>
+    </DivStyledAsInput>
   )
 }
 
