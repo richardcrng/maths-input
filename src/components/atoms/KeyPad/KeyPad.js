@@ -12,6 +12,7 @@ const KeyPadDiv = styled.div`
 `
 
 const KeyPadContext = React.createContext()
+export const useKeyPadInputRef = () => React.useContext(KeyPadContext).inputRef
 export const useKeyPadOnInput = () => React.useContext(KeyPadContext).onInput
 
 /**
@@ -20,7 +21,7 @@ export const useKeyPadOnInput = () => React.useContext(KeyPadContext).onInput
  * @param {function} props.onInput - (event, { element, mathField })
  * @param {*} ref 
  */
-function KeyPad({ children, onInput, style, when }, ref) {
+function KeyPad({ children, inputRef, onInput, style, when }, ref) {
   if (!when) return null
 
   const formattedKeyRows = React.Children.map(children,
@@ -33,7 +34,7 @@ function KeyPad({ children, onInput, style, when }, ref) {
   )
 
   return (
-    <KeyPadContext.Provider value={{ onInput }}>
+    <KeyPadContext.Provider value={{ inputRef, onInput }}>
       <KeyPadDiv
         ref={ref}
         style={style}

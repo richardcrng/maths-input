@@ -14,12 +14,7 @@ function Demo() {
 
   const keypadRef = React.useRef()
   useClickAway(keypadRef, (event) => {
-    if (isAMathQuillElement(event.target)) {
-      console.log('a mathquill-block', event.target)
-    } else {
-      console.log('not a mathquill-block', event.target)
-      handleKeypadHide()
-    }
+    if (!isAMathQuillElement(event.target)) handleKeypadHide()
   })
 
   return (
@@ -27,7 +22,7 @@ function Demo() {
       <DemoApp {...{ handleKeypadHide, handleKeypadShow }} />
       <DemoKeypad
         ref={keypadRef}
-        onInput={(e, { element }) => console.log(element)}
+        onInput={(e, { element, mathField }) => console.log('onInput handler', element, mathField)}
         style={{
           position: 'absolute',
           bottom: '0px',

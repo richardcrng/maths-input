@@ -1,7 +1,8 @@
 import KeyPad from "./KeyPad";
-import { useKeyPadOnInput } from './KeyPad'
+import { useKeyPadInputRef, useKeyPadOnInput } from './KeyPad'
 
 export {
+  useKeyPadInputRef,
   useKeyPadOnInput
 }
 
