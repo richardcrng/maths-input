@@ -11,7 +11,16 @@ const KeyPadDiv = styled.div`
   justify-content: space-between;
 `
 
-function KeyPad({ children, style, when }, ref) {
+const KeyPadContext = React.createContext()
+export const useKeyPadOnInput = () => React.useContext(KeyPadContext).onInput
+
+/**
+ * 
+ * @param {Object} props
+ * @param {function} props.onInput - (event, { element, mathField })
+ * @param {*} ref 
+ */
+function KeyPad({ children, onInput, style, when }, ref) {
   if (!when) return null
 
   const formattedKeyRows = React.Children.map(children,
@@ -24,12 +33,14 @@ function KeyPad({ children, style, when }, ref) {
   )
 
   return (
-    <KeyPadDiv
-      ref={ref}
-      style={style}
-    >
-      {addPropsToChildren({ keyPadWeight }, formattedKeyRows)}
-    </KeyPadDiv>
+    <KeyPadContext.Provider value={{ onInput }}>
+      <KeyPadDiv
+        ref={ref}
+        style={style}
+      >
+        {addPropsToChildren({ keyPadWeight }, formattedKeyRows)}
+      </KeyPadDiv>
+    </KeyPadContext.Provider>
   )
 }
 

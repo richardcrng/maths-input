@@ -27,6 +27,7 @@ function Demo() {
       <DemoApp {...{ handleKeypadHide, handleKeypadShow }} />
       <DemoKeypad
         ref={keypadRef}
+        onInput={(e, { element }) => console.log(element)}
         style={{
           position: 'absolute',
           bottom: '0px',

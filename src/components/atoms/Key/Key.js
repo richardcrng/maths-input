@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components'
 import InnerHTML from '../InnerHTML';
 import parseWithKatex from '../../../helpers/parseWithKatex';
-import { useActiveMathField } from '../../organism/MathsEnabler';
+import { useActiveMathField, useActiveHtmlElement } from '../../organism/MathsEnabler';
+import { useKeyPadOnInput } from '../KeyPad';
 
 const KeyOuter = styled.button`
   height: 100%;
@@ -50,7 +51,9 @@ function Key({
     keyRowWeight,
     ...rest
   }) {
+  const activeHtmlElement = useActiveHtmlElement()
   const activeMathField = useActiveMathField()
+  const onInput = useKeyPadOnInput()
 
   const handleEach = ({ cmd, keystroke, write }) => {
     Object.entries({ cmd, keystroke, write }).forEach(([key, val]) => {
@@ -67,6 +70,7 @@ function Key({
     commands.forEach(handleEach)
     handleEach({ cmd, keystroke, write })
     activeMathField.focus()
+    if (onInput) onInput(e, { element: activeHtmlElement, mathField: activeMathField })
   }
 
   const html = latex
