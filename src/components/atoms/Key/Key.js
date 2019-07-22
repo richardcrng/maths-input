@@ -1,8 +1,25 @@
 import React from 'react';
-import classes from './Key.module.css';
+import styled from 'styled-components'
 import InnerHTML from '../InnerHTML';
 import parseWithKatex from '../../../helpers/parseWithKatex';
 import { useActiveMathField } from '../../organism/MathsEnabler';
+
+const KeyOuter = styled.button`
+  height: 100%;
+  background-color: white;
+  color: black;
+  display: inline-block;
+  justify-content: center;
+  cursor: pointer;
+`
+const KeyInner = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 100%
+`
+
 
 /**
  * 
@@ -57,22 +74,21 @@ function Key({
     : htmlFromProps
 
   return (
-    <button
-      className={classes.KeyOuter}
+    <KeyOuter
       onClick={handleClick}
       style={{
         width: `${Math.floor(100 * weight / keyRowWeight)}%`,
         ...style
       }}
     >
-      <span className={classes.KeyInner}>
+      <KeyInner>
         {
           Component
             ? <Component />
             : <InnerHTML html={html} />
         }
-      </span>
-    </button>
+      </KeyInner>
+    </KeyOuter>
   )
 }
 
