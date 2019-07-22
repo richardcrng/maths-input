@@ -6,6 +6,8 @@
 |---|---|---|
 |`children`|`node`|Primary content|
 
+## `MathsInput`
+
 ## `KeyPad`
 ### Props
 |Name|Type|Description|
@@ -29,9 +31,13 @@
 |`component`|`function`|Component to be rendered|
 |`html`|`string`|String to use as inner HTML|
 |`latex`|`string`|Dollar delimited LaTeX code|
-|`commands`|`Object[]`|[KeyCommands](#KeyCommands) to be processed|
+|`commands`|`Object[]`|[KeyCommands](#keycommands) to be processed|
 |`style`|`Object`|Inline [`style` object](https://reactjs.org/docs/dom-elements.html#style)|
 |`weight`|`number`|Weight for the `KeyPad.Row`'s height|
 
 ### KeyCommands
-An instruction
+|Key|Value Type|Description|
+|---|---|---|
+|`cmd`|`string`|Passed to MathQuill's [`cmd`](http://docs.mathquill.com/en/latest/Api_Methods/#cmdlatex_string) method for the current [`MathsInput`](#mathsinput)|
+|`keystroke`|`string`|Passed to MathQuill's [`keystroke`](http://docs.mathquill.com/en/latest/Api_Methods/#keystrokelatex_string) method for the current [`MathsInput`](#mathsinput)|
+|`write`|`string`|Passed to MathQuill's [`write`](http://docs.mathquill.com/en/latest/Api_Methods/#writelatex_string) method for the current [`MathsInput`](#mathsinput)|
