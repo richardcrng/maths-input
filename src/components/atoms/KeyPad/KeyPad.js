@@ -26,7 +26,6 @@ function KeyPad({ children, style, when }, ref) {
   return (
     <KeyPadDiv
       ref={ref}
-      className={classes.KeyPad}
       style={style}
     >
       {addPropsToChildren({ keyPadWeight }, formattedKeyRows)}
