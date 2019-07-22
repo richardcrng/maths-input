@@ -1,20 +1,41 @@
+# Setup
+
+```bash
+npm install --s react-maths
+```
+
+```js
+import React from 'react';
+import { MathsEnabler, MathsInput, MathsKeypad } from 'react-maths'
+
+function App() {
+  return (
+    <MathsEnabler>
+      <MathsInput />
+      <MathsKeypad>
+        <MathsKeypad.Row>
+          <MathsKeypad.Key latex='7' cmd='7' />
+          <MathsKeypad.Key latex='8' cmd='8' />
+          <MathsKeypad.Key latex='$+$' cmd='+' />
+          <MathsKeypad.Key latex='$\times$' cmd='\times' />
+        </MathsKeypad.Row>
+      </MathsKeypad>
+    </MathsEnabler>
+  )
+}
+```
+
 # Components
 
 ## `MathsEnabler`
 A `<MathsEnabler />` is a top-level component that:
-- Makes [`maths-input`'s hooks](#hooks) available to nested components; and
-- Thereby allows a nested [`MathsKeypad`](#mathskeypad) to provide a nested [`MathsInput`].
+- Makes [`react-maths`'s hooks](#hooks) available to nested components; and
+- Thereby allows a nested [`MathsKeypad`](#mathskeypad) to provide a nested [`MathsInput`] with input.
 
 ### Props
 |Name|Type|Description|
 |---|---|---|
 |`children`|`node`|Primary content|
-
-### Example
-```js
-import React from 'react';
-import { MathsInputEnabler, MathsInput }
-```
 
 ## `MathsInput`
 

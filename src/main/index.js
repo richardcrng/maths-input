@@ -10,7 +10,6 @@ import parseWithKatex from '../helpers/parseWithKatex';
 
 export {
   isAMathQuillElement,
-  Maths,
   MathsInput,
   MathsEnabler,
   MathsKeypad,
@@ -19,3 +18,5 @@ export {
   useMathQuill,
   useMathQuillMathField
 }
+
+export default Maths
