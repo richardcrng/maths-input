@@ -12,12 +12,14 @@ import { useEffect } from 'react'
  * @param {function} handlers.onKeyUp - Callback to trigger on keyup event
  */
 function useKeyListeners(targetKey, { onKeyDown = R.identity, onKeyUp = R.identity }) {
-  const downHandler = ({ key }) => {
-    if (key === targetKey) onKeyDown()
+  const downHandler = (event) => {
+    const key = event.key
+    if (key === targetKey) onKeyDown(event)
   }
 
-  const upHandler = ({ key }) => {
-    if (key === targetKey) onKeyUp()
+  const upHandler = (event) => {
+    const key = event.key
+    if (key === targetKey) onKeyUp(event)
   };
 
   // Add event listeners
