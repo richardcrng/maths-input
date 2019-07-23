@@ -13,7 +13,7 @@ const KeyRowDiv = styled.div`
  * @param {number} props.keyPadWeight - accumulated weight from the parent keypad's children
  * @param {number} props.weight - the weight of the keypad's height assigned to this row
  */
-function KeyRow({ children, style, weight: rowWeight = 1, keyPadWeight = 1 }) {
+function KeyRow({ children, style, weight: rowWeight = 1, keyPadWeight = 1, ...rest }) {
   const formattedKeys = React.Children.map(children,
     ({ type: Child, props: { weight = 1, ...childProps } }) => (
       <Child weight={weight} {...childProps} />
@@ -29,6 +29,7 @@ function KeyRow({ children, style, weight: rowWeight = 1, keyPadWeight = 1 }) {
         height: `${Math.floor(100 * rowWeight/keyPadWeight)}%`,
         ...style
       }}
+      {...rest}
     >
       {addPropsToChildren({ keyRowWeight }, formattedKeys)}
     </KeyRowDiv>

@@ -98,3 +98,15 @@ A `<MathsEnabler />` is a top-level component that:
 <sup>*</sup>Optional
 
 # Hooks
+## `useActiveHtmlElementState`
+
+## `useActiveMathField`
+
+## `useMathQuill`
+
+## `useMathQuillMathField`
+
+# Helpers
+## `isAMathQuillElement`
+
+## `parseWithKatex`
