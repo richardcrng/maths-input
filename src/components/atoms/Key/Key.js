@@ -92,6 +92,7 @@ function Key({
         width: `${Math.floor(100 * weight / keyRowWeight)}%`,
         ...style
       }}
+      {...rest}
     >
       <KeyInner>
         {
