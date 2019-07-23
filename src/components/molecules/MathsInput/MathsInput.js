@@ -1,8 +1,12 @@
+import * as R from 'ramda'
 import React from 'react';
 import useMathQuillMathField from '../../../helpers/use-mathquill/useMathQuill/MathField';
 import { useSetActiveHtmlElement } from '../../organism/MathsEnabler';
 
-function MathsInput({ id, onBlur, onClick, onFocus, setActiveOnClick = true, style, ...rest }, ref) {
+function MathsInput({ id, onBlur, onClick, onFocus, setActiveOnClick = true, style, ...rest }, refFromProps) {
+  const refState = React.useRef()
+  const ref = R.defaultTo(refFromProps, refState)
+
   useMathQuillMathField(ref)
   const setActive = useSetActiveHtmlElement()
 
